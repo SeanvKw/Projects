@@ -3,7 +3,7 @@ import random
 
 
 def starting_line():
-    names = (adrian, molendowski, skrzypczyk, rusek, hubi)
+    names = (adrian, molendowski, skrzypczyk, daniel, hubi)
     width = -230
     height = 150
     idx = -1
@@ -25,13 +25,13 @@ playing = False
 adrian = Turtle(shape="turtle")
 molendowski = Turtle(shape="turtle")
 skrzypczyk = Turtle(shape="turtle")
-rusek = Turtle(shape="turtle")
+daniel = Turtle(shape="turtle")
 hubi = Turtle(shape="turtle")
-names = (adrian, molendowski, skrzypczyk, rusek, hubi)
+names = (adrian, molendowski, skrzypczyk, daniel, hubi)
 adrian.up()
 molendowski.up()
 skrzypczyk.up()
-rusek.up()
+daniel.up()
 hubi.up()
 starting_line()
 
