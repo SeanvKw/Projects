@@ -11,7 +11,7 @@ class Brain(Turtle):
         self.guessed_states = []
         self.hideturtle()
         self.penup()
-        self.data = pandas.read_csv("projekty/24_US_Quiz/50_states.csv")
+        self.data = pandas.read_csv("02-Intermediate/k_US_States_Quiz/50_states.csv")
         self.states_list = self.data["state"].to_list()
 
     def guess(self, answer_state):
@@ -42,4 +42,4 @@ class Brain(Turtle):
             if self.state not in self.guessed_states:
                 self.missing_states.append(self.state)
         self.new_data = pandas.DataFrame(self.missing_states)
-        self.new_data.to_csv("projekty/24_US_Quiz/states_to_learn.csv")
+        self.new_data.to_csv("02-Intermediate/k_US_States_Quiz/states_to_learn.csv")
