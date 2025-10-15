@@ -18,4 +18,4 @@ print(student_data_frame)
 
 for (index, row) in student_data_frame.iterrows():
     if row.student == "Angela":
-        print(row.score)
+        print(row.student)
