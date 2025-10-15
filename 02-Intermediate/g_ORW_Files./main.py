@@ -3,5 +3,5 @@
 #    print(contents)
 
 
-with open("projekty/19_ORW_Files/my_file.txt", mode="a") as file:
+with open("02-Intermediate/g_ORW_Files./my_file.txt", mode="a") as file:
     file.write("\nNew test.2")
