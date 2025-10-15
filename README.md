@@ -6,14 +6,14 @@ about: {
   courses on Udemy.com.  
   It’s mostly about Python, AI, and Machine Learning — basically me learning by doing.
 }
-currently_learning {
+currently_learning: {
   "Python programming basics"
   "Machine Learning concepts"
   "Deep Learning with TensorFlow & PyTorch"
   "Automation with Python"
   }
 
-goals_2025 {
+goals_2025: {
   "Polish and publish my portfolio using python/html/css"
     }
 certificates: {
