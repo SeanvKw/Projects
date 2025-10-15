@@ -7,7 +7,6 @@ class Brain(Turtle):
     def __init__(self):
         super().__init__()
         self.score = 0
-        self.missing_states = []
         self.guessed_states = []
         self.hideturtle()
         self.penup()
@@ -39,9 +38,11 @@ class Brain(Turtle):
         return False
 
     def not_guessed(self):
-        for self.state in self.states_list:
-            if self.state not in self.guessed_states:
-                self.missing_states.append(self.state)
-        self.new_data = pandas.DataFrame(self.missing_states)
+        # for self.state in self.states_list:
+        #     if self.state not in self.guessed_states:
+        #         self.missing_states.append(self.state)
+        self.unguessed_states = [
+            self.state for self.state in self.states_list if self.state not in self.guessed_states]
+        self.new_data = pandas.DataFrame(self.unguessed_states)
         self.new_data.to_csv(
             "02-Intermediate/j_US_States_Quiz/states_to_learn.csv")
