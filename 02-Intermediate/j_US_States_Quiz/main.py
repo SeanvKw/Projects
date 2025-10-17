@@ -19,7 +19,6 @@ while not game_end:
     if not answer_state:  # Cancel or empty input
         game_end = True
         brain.not_guessed()
-        print(brain.unguessed_states)
         break
 
     answer_state = answer_state.title()  # Normalize capitalization
