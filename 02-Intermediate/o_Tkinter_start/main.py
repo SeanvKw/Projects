@@ -1,8 +1,9 @@
-from tkinter import *
+from tkinter import *  # type: ignore
 
 window = Tk()
 window.title("First time here!!")
-window.minsize(500, 300)
+window.minsize(height=300, width=500)
+window.config(padx=250, pady=20)
 
 
 def button_clicked():
@@ -12,16 +13,18 @@ def button_clicked():
 # Label
 label = Label(text="I am a Label", font=(
     "Arial", 24, "italic", "bold"))
-label.pack()
+label.grid(column=0, row=0)
 # label["text"] = "New Text"
 # label.config(text="New Text")
 
 # Button
 button = Button(text="Click me", command=button_clicked)
-button.pack()
+button.grid(column=0, row=1)
 
+button = Button(text="I'm Here Seeking Vengenace", command=button_clicked)
+button.grid(column=0, row=2)
 # Entry
 
 input_type = Entry(width=10)
-input_type.pack()
+input_type.grid(column=0, row=3)
 window.mainloop()
