@@ -18,9 +18,7 @@ goals_2025: {
     }
 certificates: {
   https://www.udemy.com/certificate/UC-b09bedb3-4982-4d2e-add9-400e393693b4
-
       }
 
-status = "Work in progress 💻"
 note = "Just me learning, experimenting, and having fun with code 😄"
 ```
