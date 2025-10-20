@@ -8,7 +8,7 @@ window.config(padx=20, pady=20)
 
 def miles_to_km():
     to_miles = int(input_miles.get())
-    label_result.config(text=round(to_miles*1.609344, 2))
+    label_result.config(text=round(to_miles*1.609, 2))
 
 
 # Inputs
