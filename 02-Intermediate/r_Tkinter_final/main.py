@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import *  # type: ignore
 
 window = Tk()
 window.title("Mile to Km Converter")
