@@ -5,7 +5,7 @@ from Brain import Brain
 screen = Screen()
 screen.title("U.S States Game")
 screen.setup(width=725, height=491)
-screen.bgpic("02-Intermediate/j_US_States_Quiz/blank_states_img.gif")
+screen.bgpic("02-Intermediate/fb_US_States_Quiz/blank_states_img.gif")
 
 # Create brain instance
 brain = Brain()

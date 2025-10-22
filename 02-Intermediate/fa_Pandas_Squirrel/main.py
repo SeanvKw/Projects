@@ -1,7 +1,7 @@
 import pandas
 
 data = pandas.read_csv(
-    "02-Intermediate/i_Pandas_Squirrel/2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
+    "02-Intermediate/fa_Pandas_Squirrel/2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
 
 gray = (sum(data["Primary Fur Color"] == "Gray"))
 red = (sum(data["Primary Fur Color"] == "Cinnamon"))
@@ -12,4 +12,4 @@ data_dict = {
     "Count": [gray, red, black]
 }
 df = pandas.DataFrame(data_dict)
-df.to_csv("02-Intermediate/i_Pandas_Squirrel/squirrel_count.csv")
+df.to_csv("02-Intermediate/fa_Pandas_Squirrel/squirrel_count.csv")
