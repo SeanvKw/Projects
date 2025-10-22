@@ -2,6 +2,7 @@ from tkinter import *  # type: ignore
 from tkinter import messagebox
 from random import choice, randint, shuffle
 import pyperclip
+import json
 FONT = ("", 12, "bold")
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
@@ -31,24 +32,56 @@ def save_to_file():
     website = website_input.get()
     login = login_input.get()
     password = password_input.get()
+    new_data = {
+        website: {
+            "email": login,
+            "password": password
+        }}
 
     if len(website) == 0 or len(password) == 0:
         messagebox.showinfo(title="Something is Empty",
                             message="Please fill all the fields for correct validation of data.")
     else:
+        try:
+            with open(
+                    "02-INTERMEDIATE/ie_Password_Manager/passwords.json", "r") as data_file:
+                # Reading old data
+                data = json.load(data_file)
+                # Updating with new data
+                data.update(new_data)
 
-        is_okay = messagebox.askokcancel(
-            title="Notification", message=f"These are the details entered: \nWebiste: {website} \nEmail: {login}\nPassword: {password}\nIs it okay to save?")
+        except FileNotFoundError:
+            with open("02-INTERMEDIATE/ie_Password_Manager/passwords.json", "w") as data_file:
+                json.dump(new_data, data_file, indent=4)
 
-        if is_okay:
-            save = open(
-                "02-INTERMEDIATE/k_Password_Manager/passwords.txt", "a")
-            save.write(
-                f"{website} | {login} | {password}\n")
-            save.close()
+        else:
+            data.update(new_data)
+            with open("02-INTERMEDIATE/ie_Password_Manager/passwords.json", "w") as data_file:
+                # Saving updated data
+                json.dump(data, data_file, indent=4)
+
+        finally:
+
             website_input.delete(0, END)
             password_input.delete(0, END)
 
+# ---------------------------- SEARCH BY WEBSITE ------------------------------- #
+
+
+def search_by_webiste():
+    website = website_input.get()
+
+    with open("02-INTERMEDIATE/ie_Password_Manager/passwords.json") as data_file:
+        data = json.load(data_file)
+
+        if website in data:
+            email = data[website]["email"]
+            password = data[website]["password"]
+            messagebox.showinfo(
+                title=website, message=f"Email: {email}\nPassword: {password}")
+        else:
+            messagebox.showerror(title="Website not Found",
+                                 message="Website has not been found in passwords.json\nTry to exactly match the webiste name and CAPITAL LETTERS!")
 # ---------------------------- UI SETUP ------------------------------- #
 
 
@@ -61,7 +94,7 @@ window.columnconfigure(2, weight=0)
 
 # Logo
 canvas = Canvas(width=200, height=200, highlightthickness=0)
-logo_img = PhotoImage(file="02-Intermediate/k_Password_Manager/logo.png")
+logo_img = PhotoImage(file="02-Intermediate/ie_Password_Manager/logo.png")
 canvas.create_image(100, 100, image=logo_img)
 canvas.grid(column=1, row=0)
 
@@ -77,17 +110,20 @@ password_label.grid(column=0, row=3, sticky="e")
 
 # Entry
 website_input = Entry()
-website_input.grid(column=1, row=1, columnspan=2, sticky="ew", padx=(4, 0))
+website_input.grid(column=1, row=1, sticky="ew", padx=(4, 0))
 website_input.focus()
 
 login_input = Entry()
 login_input.grid(column=1, row=2, columnspan=2, sticky="ew", padx=(4, 0))
-login_input.insert(END, "raczkadek@gmail.com")
+login_input.insert(END, "example@gmail.com")
 
 password_input = Entry()
 password_input.grid(column=1, row=3, sticky="ew", padx=(4, 0))
 
 # Buttons
+search_website = Button(text="Search", font=FONT, command=search_by_webiste)
+search_website.grid(column=2, row=1, sticky="ew", padx=(6, 0))
+
 generate_password = Button(text="Generate Password",
                            font=FONT, command=password_generator)
 generate_password.grid(column=2, row=3, sticky="w", padx=(6, 0))
