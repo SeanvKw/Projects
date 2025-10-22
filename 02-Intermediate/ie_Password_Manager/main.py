@@ -70,10 +70,13 @@ def save_to_file():
 
 def search_by_webiste():
     website = website_input.get()
-
-    with open("02-INTERMEDIATE/ie_Password_Manager/passwords.json") as data_file:
-        data = json.load(data_file)
-
+    try:
+        with open("02-INTERMEDIATE/ie_Password_Manager/passwords.json") as data_file:
+            data = json.load(data_file)
+    except FileNotFoundError:
+        messagebox.showerror(title="File Not Created Yet",
+                             message="Please input Your credentials first and then search for them")
+    else:
         if website in data:
             email = data[website]["email"]
             password = data[website]["password"]
