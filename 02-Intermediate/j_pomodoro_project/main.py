@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import *  # type: ignore
 import math
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
