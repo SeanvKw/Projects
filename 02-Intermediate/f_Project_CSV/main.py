@@ -7,7 +7,7 @@
 #             temperature.append(int(row[1]))
 import pandas
 
-data = pandas.read_csv("02-Intermediate/h_Project_CSV/weather_data.csv")
+data = pandas.read_csv("02-Intermediate/f_Project_CSV/weather_data.csv")
 
 # data_dict = data.to_dict()
 
@@ -37,4 +37,4 @@ data_dict = {
     "score": [76, 56, 65]
 }
 data = pandas.DataFrame(data_dict)
-data.to_csv("02-Intermediate/h_Project_CSV/pogoda.csv")
+data.to_csv("02-Intermediate/f_Project_CSV/pogoda.csv")
