@@ -33,4 +33,3 @@ if not will_rain:
         from_='+12297017683',
         to=str(mynumber)
     )
-    print(message.status)
