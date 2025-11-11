@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 # import lxml
 
-with open("02-Intermediate/l_Web_Foundation/Intermediate+/7.4/website.html") as file:
+with open("02-Intermediate/l_Web_Foundation/Intermediate+/7.4 Web Scraping/website.html") as file:
     content = file.read()
 
 
@@ -23,7 +23,7 @@ print(heading)
 section_heading = soup.find(name="h3", class_="heading")
 print(section_heading.text)  # type: ignore
 
-company_url = soup.select_one(selector="p a")
+company_url = soup.select(selector="p a")
 print(company_url)  # type: ignore
 
 name = soup.select_one(selector="#name")
