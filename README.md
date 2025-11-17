@@ -3,7 +3,7 @@
 
 about: {
   This repo is where I drop all the projects I'm making while going through
-  courses on Udemy.com.  
+  courses on Udemy.com.
   It’s mostly about Python, AI, and Machine Learning — basically me learning by doing.
 }
 currently_learning: {
