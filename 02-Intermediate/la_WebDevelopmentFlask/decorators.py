@@ -14,13 +14,13 @@ def speed_calc_decorator(func):
 @speed_calc_decorator
 def fast_function():
     for i in range(1000000):
-        i * i
+        i * i  # type: ignore
 
 
 @speed_calc_decorator
 def slow_function():
     for i in range(10000000):
-        i * i
+        i * i  # type: ignore
 
 
 fast_function()
