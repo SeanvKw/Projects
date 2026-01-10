@@ -28,7 +28,7 @@ cookie = driver.find_element(by=By.ID, value="bigCookie")
 wait_time = 5
 timeout = time() + wait_time  # Check for purchases every 5 seconds
 five_min = time() + 60 * 5  # Run for 5 minutes
-print(timeout)
+
 while True:
     cookie.click()
 
