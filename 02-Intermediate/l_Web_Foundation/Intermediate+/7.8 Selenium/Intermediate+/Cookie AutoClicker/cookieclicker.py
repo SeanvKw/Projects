@@ -28,7 +28,7 @@ cookie = driver.find_element(by=By.ID, value="bigCookie")
 wait_time = 5
 timeout = time() + wait_time  # Check for purchases every 5 seconds
 five_min = time() + 60 * 5  # Run for 5 minutes
-
+print(timeout)
 while True:
     cookie.click()
 
@@ -38,7 +38,11 @@ while True:
                                        value="#products .enabled")
         can_buy_upgrades = driver.find_elements(By.CSS_SELECTOR,
                                                 value="#upgrades .enabled")
-        for item in can_buy:
+        for upgrade in can_buy_upgrades:
+            upgrade.click()
+            sleep(0.1)
+        for item in reversed(can_buy):
             item.click()
             sleep(0.1)
+
         timeout = time() + wait_time
